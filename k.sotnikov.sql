@@ -10,9 +10,9 @@ CREATE DATABASE "k.sotnikov" WITH ENCODING='UTF-8';
 
 \c "k.sotnikov";
 
-
-
-
+--
+-- Name: awards; Type: TABLE; Schema: public; Owner: postgres
+--
 
 CREATE TABLE public.awards (
     awardid integer NOT NULL,
@@ -23,9 +23,11 @@ CREATE TABLE public.awards (
 );
 
 
+ALTER TABLE public.awards OWNER TO postgres;
 
-
-
+--
+-- Name: device; Type: TABLE; Schema: public; Owner: postgres
+--
 
 CREATE TABLE public.device (
     deviceid integer NOT NULL,
@@ -35,9 +37,11 @@ CREATE TABLE public.device (
 );
 
 
+ALTER TABLE public.device OWNER TO postgres;
 
-
-
+--
+-- Name: episode; Type: TABLE; Schema: public; Owner: postgres
+--
 
 CREATE TABLE public.episode (
     episodeid integer NOT NULL,
@@ -49,9 +53,11 @@ CREATE TABLE public.episode (
 );
 
 
+ALTER TABLE public.episode OWNER TO postgres;
 
-
-
+--
+-- Name: genre; Type: TABLE; Schema: public; Owner: postgres
+--
 
 CREATE TABLE public.genre (
     genreid integer NOT NULL,
@@ -59,9 +65,11 @@ CREATE TABLE public.genre (
 );
 
 
+ALTER TABLE public.genre OWNER TO postgres;
 
-
-
+--
+-- Name: profile; Type: TABLE; Schema: public; Owner: postgres
+--
 
 CREATE TABLE public.profile (
     profileid integer NOT NULL,
@@ -71,9 +79,11 @@ CREATE TABLE public.profile (
 );
 
 
+ALTER TABLE public.profile OWNER TO postgres;
 
-
-
+--
+-- Name: ratingreview; Type: TABLE; Schema: public; Owner: postgres
+--
 
 CREATE TABLE public.ratingreview (
     ratingreviewid integer NOT NULL,
@@ -86,9 +96,11 @@ CREATE TABLE public.ratingreview (
 );
 
 
+ALTER TABLE public.ratingreview OWNER TO postgres;
 
-
-
+--
+-- Name: show; Type: TABLE; Schema: public; Owner: postgres
+--
 
 CREATE TABLE public.show (
     showid integer NOT NULL,
@@ -102,9 +114,11 @@ CREATE TABLE public.show (
 );
 
 
+ALTER TABLE public.show OWNER TO postgres;
 
-
-
+--
+-- Name: subscription; Type: TABLE; Schema: public; Owner: postgres
+--
 
 CREATE TABLE public.subscription (
     subscriptionid integer NOT NULL,
@@ -114,9 +128,11 @@ CREATE TABLE public.subscription (
 );
 
 
+ALTER TABLE public.subscription OWNER TO postgres;
 
-
-
+--
+-- Name: user_; Type: TABLE; Schema: public; Owner: postgres
+--
 
 CREATE TABLE public.user_ (
     userid integer NOT NULL,
@@ -127,9 +143,11 @@ CREATE TABLE public.user_ (
 );
 
 
+ALTER TABLE public.user_ OWNER TO postgres;
 
-
-
+--
+-- Name: watchlist; Type: TABLE; Schema: public; Owner: postgres
+--
 
 CREATE TABLE public.watchlist (
     watchlistid integer NOT NULL,
@@ -138,9 +156,11 @@ CREATE TABLE public.watchlist (
 );
 
 
+ALTER TABLE public.watchlist OWNER TO postgres;
 
-
-
+--
+-- Data for Name: awards; Type: TABLE DATA; Schema: public; Owner: postgres
+--
 
 COPY public.awards (awardid, showid, title, category, year) FROM stdin;
 1	1	Emmy Award	Outstanding Drama Series	2013
@@ -161,7 +181,9 @@ COPY public.awards (awardid, showid, title, category, year) FROM stdin;
 \.
 
 
-
+--
+-- Data for Name: device; Type: TABLE DATA; Schema: public; Owner: postgres
+--
 
 COPY public.device (deviceid, userid, devicetype, lastused) FROM stdin;
 1	1	Smart TV	2022-01-15 18:30:00
@@ -182,7 +204,9 @@ COPY public.device (deviceid, userid, devicetype, lastused) FROM stdin;
 \.
 
 
-
+--
+-- Data for Name: episode; Type: TABLE DATA; Schema: public; Owner: postgres
+--
 
 COPY public.episode (episodeid, episodenumber, title, duration, releasedate, showid) FROM stdin;
 1	1	Wolferton Splash	60	2016-11-04	1
@@ -203,7 +227,9 @@ COPY public.episode (episodeid, episodenumber, title, duration, releasedate, sho
 \.
 
 
-
+--
+-- Data for Name: genre; Type: TABLE DATA; Schema: public; Owner: postgres
+--
 
 COPY public.genre (genreid, name) FROM stdin;
 1	Historical
@@ -224,7 +250,9 @@ COPY public.genre (genreid, name) FROM stdin;
 \.
 
 
-
+--
+-- Data for Name: profile; Type: TABLE DATA; Schema: public; Owner: postgres
+--
 
 COPY public.profile (profileid, userid, name, preferences) FROM stdin;
 1	1	Alice Profile	Drama, Romance
@@ -245,7 +273,9 @@ COPY public.profile (profileid, userid, name, preferences) FROM stdin;
 \.
 
 
-
+--
+-- Data for Name: ratingreview; Type: TABLE DATA; Schema: public; Owner: postgres
+--
 
 COPY public.ratingreview (ratingreviewid, showid, userid, rating, review, date) FROM stdin;
 1	1	1	8.8	Fantastic portrayal of historical events.	2023-01-05
@@ -266,7 +296,9 @@ COPY public.ratingreview (ratingreviewid, showid, userid, rating, review, date) 
 \.
 
 
-
+--
+-- Data for Name: show; Type: TABLE DATA; Schema: public; Owner: postgres
+--
 
 COPY public.show (showid, title, description, poster, rating, director, genreid, cast_) FROM stdin;
 1	The Crown	Chronicles the reign of Queen Elizabeth II.	the_crown.jpg	8.7	Peter Morgan	1	Claire Foy, Matt Smith
@@ -287,7 +319,9 @@ COPY public.show (showid, title, description, poster, rating, director, genreid,
 \.
 
 
-
+--
+-- Data for Name: subscription; Type: TABLE DATA; Schema: public; Owner: postgres
+--
 
 COPY public.subscription (subscriptionid, userid, plan, billinginfo) FROM stdin;
 1	1	Premium	Credit Card ending in 5678
@@ -308,7 +342,9 @@ COPY public.subscription (subscriptionid, userid, plan, billinginfo) FROM stdin;
 \.
 
 
-
+--
+-- Data for Name: user_; Type: TABLE DATA; Schema: public; Owner: postgres
+--
 
 COPY public.user_ (userid, name, email, password, accounttype) FROM stdin;
 1	Alice Johnson	alice.johnson@email.com	pass123	Free
@@ -329,7 +365,9 @@ COPY public.user_ (userid, name, email, password, accounttype) FROM stdin;
 \.
 
 
-
+--
+-- Data for Name: watchlist; Type: TABLE DATA; Schema: public; Owner: postgres
+--
 
 COPY public.watchlist (watchlistid, userid, showid) FROM stdin;
 1	1	4
